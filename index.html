@@ -520,8 +520,8 @@ section{position:relative}
 .deliver-card p{font-size:13.5px;color:#4d544f}
 /* ===== ENTREGAVEIS â€” novo layout imagem+itens ===== */
 .deliver-new-wrap{margin-top:12px;display:flex;flex-direction:column;align-items:center;gap:16px}
-.deliver-img-wrap{max-width:780px;width:100%}
-.deliver-mockup-img{width:100%;max-width:780px;object-fit:contain;border-radius:16px}
+.deliver-img-wrap{max-width:620px;width:100%}
+.deliver-mockup-img{width:100%;max-width:620px;object-fit:contain;border-radius:16px}
 .deliver-items{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;gap:0;max-width:900px;width:100%}
 .deliver-item{flex:1;min-width:160px;text-align:center;padding:20px 24px}
 .deliver-item h3{font-size:17px;margin-bottom:6px;color:var(--verde-profundo)}
@@ -674,7 +674,7 @@ section{position:relative}
 /* ===== RODAPÃ‰ ===== */
 footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
 .foot-logo .ph{max-width:200px;height:60px;margin:0 auto 34px}
-.foot-logo-img{width:200px;max-width:70%;height:auto;object-fit:contain;margin:0 auto 34px;display:block;background:#FFFFFF;border-radius:14px;padding:12px 18px}
+.foot-logo{display:flex;flex-wrap:wrap;align-items:center;justify-content:center;gap:18px;margin-bottom:34px}.foot-logo-img{height:60px;width:auto;max-width:200px;object-fit:contain;display:block;background:#FFFFFF;border-radius:14px;padding:10px 16px}.foot-hotmart-inline{height:60px;width:auto;max-width:185px;object-fit:contain;display:block;border-radius:10px}
 /* selos de confianca: icone premium + maior distancia icone/texto */
 .foot-seals{display:flex;flex-wrap:wrap;justify-content:center;gap:10px 13px;margin-bottom:36px}
 /* selo: borda gradient transparente (dourado->transparente) + bg gradient sutil dourado/verde, compacto (50%) */
@@ -1405,14 +1405,11 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
 <footer>
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="footGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0C054"/><stop offset="1" stop-color="#C9982E"/></linearGradient></defs></svg>
   <div class="wrap">
-    <div class="foot-logo"><img class="foot-logo-img" src="assets/logo-rodape.png" alt="Ketox Diet Pro"></div>
+    <div class="foot-logo"><img class="foot-logo-img" src="assets/logo-rodape.png" alt="Ketox Diet Pro"><img class="foot-hotmart-inline" src="assets/hotmart-logo.png" alt="Hotmart"></div>
     <div class="foot-seals">
       <span class="foot-seal"><span class="fs-ico"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V7z"/><path d="m9 12 2 2 4-4"/></svg></span>Compra 100% segura</span>
       <span class="foot-seal"><span class="fs-ico"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V7z"/><circle cx="12" cy="12" r="3"/></svg></span>Garantia incondicional de 7 dias</span>
       <span class="foot-seal"><span class="fs-ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>Parcele em at&eacute; 12x</span>
-    </div>
-    <div class="foot-hotmart-logo" style="text-align:center;margin-top:18px;margin-bottom:28px;">
-      <img src="assets/hotmart-logo.png" alt="Hotmart" style="width:185px;max-width:80%;height:auto;border-radius:10px;display:inline-block;" loading="lazy">
     </div>
     <div class="foot-links">
       <a href="#">Termos de Uso</a>
