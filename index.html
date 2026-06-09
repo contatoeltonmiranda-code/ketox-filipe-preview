@@ -518,6 +518,21 @@ section{position:relative}
 .deliver-card .ph{aspect-ratio:1/1;border-radius:18px;margin-bottom:14px}
 .deliver-card h3{font-size:16px;margin-bottom:4px}
 .deliver-card p{font-size:13.5px;color:#4d544f}
+/* ===== ENTREGAVEIS — novo layout imagem+itens ===== */
+.deliver-new-wrap{margin-top:42px;display:flex;flex-direction:column;align-items:center;gap:38px}
+.deliver-img-wrap{max-width:780px;width:100%}
+.deliver-mockup-img{width:100%;max-width:780px;object-fit:contain;border-radius:16px}
+.deliver-items{display:flex;align-items:stretch;justify-content:center;flex-wrap:wrap;gap:0;max-width:900px;width:100%}
+.deliver-item{flex:1;min-width:160px;text-align:center;padding:20px 24px}
+.deliver-item h3{font-size:17px;margin-bottom:6px;color:var(--verde-profundo)}
+.deliver-item p{font-size:14px;color:#4d544f;line-height:1.5}
+/* divisoria vertical gradient verde */
+.deliver-div{width:2px;background:linear-gradient(to bottom,transparent,#2E6B3C 30%,#0F4022 70%,transparent);align-self:stretch;flex-shrink:0}
+@media(max-width:768px){
+  .deliver-items{flex-direction:column;align-items:center}
+  .deliver-div{width:80%;height:2px;background:linear-gradient(to right,transparent,#2E6B3C 30%,#0F4022 70%,transparent)}
+  .deliver-item{width:100%;min-width:unset}
+}
 
 /* ===== OFERTA / PREÇO ===== */
 .access-seal{display:block;max-width:560px;margin:30px auto;text-align:center;background:var(--verde-profundo);color:var(--dourado-claro);font-weight:700;letter-spacing:1px;padding:14px;border-radius:50px;font-size:14px}
@@ -602,7 +617,7 @@ section{position:relative}
 .auth-tab .at-num.has-img .at-badge{position:absolute;bottom:-6px;right:-6px;width:24px;height:24px;border-radius:50%;background:var(--grad-dourado);display:flex;align-items:center;justify-content:center;font-style:normal;font-size:15px;line-height:1;color:var(--verde-profundo);box-shadow:0 3px 8px rgba(0,0,0,.3),inset 0 0 0 1.5px rgba(255,255,255,.4);font-family:'Bebas Neue',sans-serif}
 .auth-tab.active .at-num.has-img .at-img{box-shadow:inset 0 0 0 2px var(--dourado),0 6px 16px rgba(201,152,46,.4)}
 /* coluna direita: painel que troca */
-.auth-panel{position:relative;border-radius:22px;overflow:hidden;min-height:480px;
+.auth-panel{position:relative;border-radius:22px;overflow:hidden;min-height:540px;
   background:rgba(255,255,255,.06);border:1px solid rgba(245,215,122,.2)}
 .auth-pane{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;gap:18px;
   padding:34px 32px;opacity:0;visibility:hidden;transform:translateY(14px);transition:opacity .45s ease,transform .45s ease,visibility .45s}
@@ -781,6 +796,18 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
   background-position:top center,center;
   background-size:cover,cover;
 }
+
+/* ===== ITEM 1: Logo hero ===== */
+.hero-logo-wrap{margin-bottom:20px}
+.hero-logo{width:200px;max-width:60%;object-fit:contain;display:block}
+/* ===== ITEM 10: Selos rodape imagem ===== */
+.foot-seals-img{text-align:center;margin-bottom:36px}
+.foot-seals-img img{max-width:560px;width:100%;height:auto}
+/* ===== ITEM 9: scroll-reveal ===== */
+/* Classe adicionada via JS — sem JS o elemento fica visivel (estado final) */
+.sr-hidden{opacity:0;transform:translateY(24px);transition:opacity .6s ease,transform .6s ease}
+.sr-hidden.sr-visible{opacity:1;transform:none}
+@media(prefers-reduced-motion:reduce){.sr-hidden,.sr-hidden.sr-visible{opacity:1;transform:none;transition:none}}
 </style>
 </head>
 <body>
@@ -794,9 +821,10 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
   <span class="sparkle" style="bottom:60px;left:8%;font-size:18px;">&#10022;</span>
   <div class="wrap hero-grid">
     <div class="hero-copy">
+      <div class="hero-logo-wrap"><img class="hero-logo" src="assets/logo-hero.png" alt="KetoX Diet" loading="eager"></div>
       <span class="hero-pill"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M11 20A7 7 0 0 1 9.8 6.1C15.5 5 17 4.48 19 2c1 2 2 4.18 2 8 0 5.5-4.78 10-10 10Z"/><path d="M2 21c0-3 1.85-5.36 5.08-6"/></svg>M&Eacute;TODO PR&Aacute;TICO BASEADO EM CI&Ecirc;NCIA &middot; +3.000 ALUNOS</span>
       <h1>Aprenda a <span class="gold-it">emagrecer</span> sem passar <span class="gold-it">fome</span> e sem <span class="gold-it">efeito sanfona</span></h1>
-      <p class="sub">Um m&eacute;todo cetog&ecirc;nico simples e sustent&aacute;vel para voc&ecirc; organizar sua alimenta&ccedil;&atilde;o, <strong>controlar a fome</strong> e sair do ciclo de dietas que n&atilde;o funcionam &mdash; <strong>sem extremismos</strong>, <strong>no seu ritmo</strong>.</p>
+      <p class="sub">Um m&eacute;todo cetog&ecirc;nico simples e sustent&aacute;vel para voc&ecirc; organizar sua alimenta&ccedil;&atilde;o, <strong>controlar a fome</strong> e sair do ciclo de dietas que n&atilde;o funcionam, <strong>sem extremismos</strong>, <strong>no seu ritmo</strong>.</p>
       <a href="#oferta" class="btn lg">Quero come&ccedil;ar agora</a>
       <div class="cta-seals">
         <span>Acesso imediato</span>
@@ -867,7 +895,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
 <section class="sec sec-dor has-bg bg-dor" style="padding-bottom:42px;">
   <div class="wrap">
     <h2>Se voc&ecirc; j&aacute; tentou de tudo, o problema <span class="gold-it">nunca foi voc&ecirc;</span></h2>
-    <p class="lead maxw" style="margin:0;max-width:680px;">Voc&ecirc; corta o carboidrato na segunda-feira. Resiste por alguns dias. E quando v&ecirc;, j&aacute; est&aacute; de volta ao mesmo lugar &mdash; com mais fome, mais culpa e menos vontade de tentar de novo.</p>
+    <p class="lead maxw" style="margin:0;max-width:680px;">Voc&ecirc; corta o carboidrato na segunda-feira. Resiste por alguns dias. E quando v&ecirc;, j&aacute; est&aacute; de volta ao mesmo lugar, com mais fome, mais culpa e menos vontade de tentar de novo.</p>
     <p style="font-family:'Montserrat',sans-serif;font-weight:500;font-style:italic;font-size:20px;color:var(--verde-medio);margin:24px 0 8px;">Voc&ecirc; reconhece esse ciclo?</p>
 
     <div class="pain-orbit">
@@ -904,7 +932,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
   <div class="wrap">
     <div class="ba-grid">
       <div class="ba-col ba-antes">
-        <h3><span class="ba-h-ico"><svg viewBox="0 0 24 24"><path d="M3 17l4-4 3 3 5-6 4 4"/><path d="M21 21H3V3"/></svg></span>ANTES &mdash; o ciclo de sempre</h3>
+        <h3><span class="ba-h-ico"><svg viewBox="0 0 24 24"><path d="M3 17l4-4 3 3 5-6 4 4"/><path d="M21 21H3V3"/></svg></span>ANTES: o ciclo de sempre</h3>
         <ul>
           <li><span class="li-ico"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span><span>Come&ccedil;a uma dieta, mas desiste no meio do caminho.</span></li>
           <li><span class="li-ico"><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></span><span>Sente fome com frequ&ecirc;ncia e vive no efeito sanfona.</span></li>
@@ -914,7 +942,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
         </ul>
       </div>
       <div class="ba-col ba-depois">
-        <h3><span class="ba-h-ico"><svg viewBox="0 0 24 24"><path d="M3 13l4 4 5-6 4 4 5-7"/><path d="M21 21H3V3"/></svg></span>DEPOIS &mdash; com o Ketox Diet Pro</h3>
+        <h3><span class="ba-h-ico"><svg viewBox="0 0 24 24"><path d="M3 13l4 4 5-6 4 4 5-7"/><path d="M21 21H3V3"/></svg></span>DEPOIS: com o Ketox Diet Pro</h3>
         <ul>
           <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Aprende um m&eacute;todo simples e pr&aacute;tico de colocar em pr&aacute;tica.</span></li>
           <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span>Organiza a alimenta&ccedil;&atilde;o com mais clareza e se sente mais saciado(a).</span></li>
@@ -936,7 +964,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
       <div class="pillars-intro">
         <span class="eyebrow sec-eyebrow">CONHE&Ccedil;A O M&Eacute;TODO</span>
         <h2 class="virada-h2">E se o caminho fosse <span class="gold-it">simples, pr&aacute;tico</span> e feito para a vida real?</h2>
-        <p class="lead" style="color:#dcdcdc;">Imagine acordar com mais disposi&ccedil;&atilde;o. Saber exatamente o que comer, sem ficar contando cada caloria. Passar pela tarde sem aquela fome ansiosa. E, pela primeira vez, sentir que voc&ecirc; est&aacute; no controle &mdash; n&atilde;o a dieta.</p>
+        <p class="lead" style="color:#dcdcdc;">Imagine acordar com mais disposi&ccedil;&atilde;o. Saber exatamente o que comer, sem ficar contando cada caloria. Passar pela tarde sem aquela fome ansiosa. E, pela primeira vez, sentir que voc&ecirc; est&aacute; no controle, n&atilde;o a dieta.</p>
         <p class="lead">&Eacute; exatamente para isso que o <b style="color:var(--dourado-claro)">Ketox Diet Pro</b> existe. Em vez de regras imposs&iacute;veis, voc&ecirc; aprende um m&eacute;todo cetog&ecirc;nico estruturado passo a passo, baseado em ci&ecirc;ncia, que se adapta &agrave; sua rotina. Sem extremismos. Sem terrorismo nutricional. O que voc&ecirc; ganha aqui &eacute; <b style="color:var(--dourado-claro)">dire&ccedil;&atilde;o, apoio e clareza</b>.</p>
         <a href="#oferta" class="btn">Quero esse m&eacute;todo</a>
       </div>
@@ -979,9 +1007,9 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
         <img class="purpose-photo" src="assets/proposito-img.png" alt="Mockup do e-book Ketox Diet Pro: m&eacute;todo simples para parar de tentar e come&ccedil;ar a evoluir" loading="lazy">
       </div>
       <ul class="diff-list">
-        <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Plano estruturado</b> &mdash; ferramentas para cuidar da sa&uacute;de, elevar a disposi&ccedil;&atilde;o e alcan&ccedil;ar seus objetivos.</span></li>
-        <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Suporte especializado</b> &mdash; orienta&ccedil;&atilde;o profissional para guiar voc&ecirc; em cada etapa.</span></li>
-        <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Alimenta&ccedil;&atilde;o que transforma</b> &mdash; descubra como a cetog&ecirc;nica pode impactar positivamente seu corpo e sua mente.</span></li>
+        <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Plano estruturado:</b> ferramentas para cuidar da sa&uacute;de, elevar a disposi&ccedil;&atilde;o e alcan&ccedil;ar seus objetivos.</span></li>
+        <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Suporte especializado:</b> orienta&ccedil;&atilde;o profissional para guiar voc&ecirc; em cada etapa.</span></li>
+        <li><span class="li-ico"><svg viewBox="0 0 24 24"><polyline points="20 6 9 17 4 12"/></svg></span><span><b>Alimenta&ccedil;&atilde;o que transforma:</b> descubra como a cetog&ecirc;nica pode impactar positivamente seu corpo e sua mente.</span></li>
       </ul>
     </div>
     <div class="icon-grid">
@@ -1002,7 +1030,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
         <h3>Atualiza&ccedil;&otilde;es</h3><p>Conte&uacute;do sempre atualizado, sem custo extra.</p>
       </div>
     </div>
-    <p class="center" style="font-family:'Montserrat',sans-serif;font-weight:500;font-style:italic;font-size:19px;color:var(--verde-medio);max-width:680px;margin:42px auto 0;">Um caminho real para resultados &mdash; com disciplina, orienta&ccedil;&atilde;o e foco, voc&ecirc; transforma corpo, sa&uacute;de e h&aacute;bitos.</p>
+    <p class="center" style="font-family:'Montserrat',sans-serif;font-weight:500;font-style:italic;font-size:19px;color:var(--verde-medio);max-width:680px;margin:42px auto 0;">Um caminho real para resultados, com disciplina, orienta&ccedil;&atilde;o e foco, voc&ecirc; transforma corpo, sa&uacute;de e h&aacute;bitos.</p>
     <div class="center" style="margin-top:36px;"><a href="#oferta" class="btn">Quero esse caminho</a></div>
   </div>
 </section>
@@ -1063,7 +1091,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
   <div class="wrap">
     <div class="mod-grid">
       <div class="mod-item"><div class="mod-img"><img class="mod-photo" src="assets/mod1.jpg" alt="Prato cetog&ecirc;nico equilibrado para come&ccedil;ar do jeito certo" loading="lazy"></div><div class="mod-card"><span class="mod-tag">M&Oacute;DULO 1</span><h3>Come&ccedil;ar do jeito certo</h3><p>D&ecirc; o primeiro passo com seguran&ccedil;a e evite os erros mais comuns de quem est&aacute; iniciando.</p></div></div>
-      <div class="mod-item"><div class="mod-img"><img class="mod-photo" src="assets/mod2.jpg" alt="Bowl com abacate, ovos e frutas vermelhas, base da dieta cetog&ecirc;nica" loading="lazy"></div><div class="mod-card"><span class="mod-tag">M&Oacute;DULO 2</span><h3>A base da dieta cetog&ecirc;nica</h3><p>Entenda, de forma simples, o que realmente funciona e por qu&ecirc; &mdash; sem mitos.</p></div></div>
+      <div class="mod-item"><div class="mod-img"><img class="mod-photo" src="assets/mod2.jpg" alt="Bowl com abacate, ovos e frutas vermelhas, base da dieta cetog&ecirc;nica" loading="lazy"></div><div class="mod-card"><span class="mod-tag">M&Oacute;DULO 2</span><h3>A base da dieta cetog&ecirc;nica</h3><p>Entenda, de forma simples, o que realmente funciona e por qu&ecirc;, sem mitos.</p></div></div>
       <div class="mod-item"><div class="mod-img"><img class="mod-photo" src="assets/mod3.jpg" alt="Prato colorido de vegetais frescos e abacate, benef&iacute;cios reais da alimenta&ccedil;&atilde;o" loading="lazy"></div><div class="mod-card"><span class="mod-tag">M&Oacute;DULO 3</span><h3>Benef&iacute;cios reais</h3><p>Aprenda a usar a alimenta&ccedil;&atilde;o a seu favor para controlar a fome e ganhar mais energia.</p></div></div>
       <div class="mod-item"><div class="mod-img"><img class="mod-photo" src="assets/mod4.jpg" alt="Mulher sorrindo refletindo sobre mitos e erros da alimenta&ccedil;&atilde;o" loading="lazy"></div><div class="mod-card"><span class="mod-tag">M&Oacute;DULO 4</span><h3>Mitos e erros que travam voc&ecirc;</h3><p>Descubra o que est&aacute; sabotando seus resultados e como corrigir.</p></div></div>
       <div class="mod-item"><div class="mod-img"><img class="mod-photo" src="assets/mod5.jpg" alt="Bowl de refei&ccedil;&atilde;o saud&aacute;vel pronta, planejamento alimentar simples" loading="lazy"></div><div class="mod-card"><span class="mod-tag">M&Oacute;DULO 5</span><h3>Planejamento simples</h3><p>Organize sua alimenta&ccedil;&atilde;o sem complica&ccedil;&atilde;o e saiba o que comer todos os dias.</p></div></div>
@@ -1125,7 +1153,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
       <div class="pare-card"><div class="num">02</div><h3>Menos fome, mais controle</h3><p>Aprenda a controlar a fome sem dietas malucas, sem proibi&ccedil;&otilde;es e sem sofrimento.</p></div>
       <div class="pare-card"><div class="num">03</div><h3>Clareza e dire&ccedil;&atilde;o</h3><p>Saiba exatamente o que fazer e por onde come&ccedil;ar.</p></div>
       <div class="pare-card"><div class="num">04</div><h3>Metabolismo a seu favor</h3><p>Aprenda a usar a gordura como fonte de energia de forma natural, com estrat&eacute;gias pr&aacute;ticas no seu dia a dia.</p></div>
-      <div class="pare-card"><div class="num">05</div><h3>Resultados reais, vis&iacute;veis e duradouros</h3><p>Conquiste um corpo mais leve, saud&aacute;vel e confiante &mdash; e mantenha ao longo do tempo.</p></div>
+      <div class="pare-card"><div class="num">05</div><h3>Resultados reais, vis&iacute;veis e duradouros</h3><p>Conquiste um corpo mais leve, saud&aacute;vel e confiante, e mantenha ao longo do tempo.</p></div>
     </div>
     <p class="pare-close">O melhor m&eacute;todo. Benef&iacute;cios reais. Resultados que falam por si. Sua transforma&ccedil;&atilde;o come&ccedil;a agora.</p>
     <div class="center" style="margin-top:36px;"><a href="#oferta" class="btn">Quero come&ccedil;ar minha transforma&ccedil;&atilde;o</a></div>
@@ -1143,7 +1171,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
     <div class="bonus-bento">
       <div class="bonus-card b-tall dark">
         <div class="bic"><svg viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/></svg></div>
-        <div class="btxt"><h3>Livro "Corpo Ideal &mdash; Segredos do Emagrecimento"</h3><p>Mais de 400 p&aacute;ginas com 8 modelos de card&aacute;pio (Keto Slim, low carb, sem gl&uacute;ten, sem lactose, vegetariano, sem a&ccedil;&uacute;car, equilibrado e plano de 1.300 kcal), receitas pr&aacute;ticas e estrat&eacute;gias de sa&uacute;de metab&oacute;lica.</p></div>
+        <div class="btxt"><h3>Livro "Corpo Ideal: Segredos do Emagrecimento"</h3><p>Mais de 400 p&aacute;ginas com 8 modelos de card&aacute;pio (Keto Slim, low carb, sem gl&uacute;ten, sem lactose, vegetariano, sem a&ccedil;&uacute;car, equilibrado e plano de 1.300 kcal), receitas pr&aacute;ticas e estrat&eacute;gias de sa&uacute;de metab&oacute;lica.</p></div>
         <div class="bval" style="color:var(--dourado-claro)">B&Ocirc;NUS PREMIUM</div>
       </div>
       <div class="bonus-card b-wide">
@@ -1194,12 +1222,30 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
     <span class="eyebrow outline sec-eyebrow">TUDO O QUE VOC&Ecirc; RECEBE</span>
     <h2>O que voc&ecirc; recebe <span class="gold-it">ao entrar no m&eacute;todo</span></h2>
   </div>
-  <div class="wrap">
-    <div class="deliver-grid">
-      <div class="deliver-card"><div class="ph">MOCKUP &mdash; aulas em v&iacute;deo (notebook)</div><h3>Aulas em v&iacute;deo</h3><p>8 m&oacute;dulos completos, acesso por 1 ano.</p></div>
-      <div class="deliver-card"><div class="ph light">MOCKUP &mdash; material em PDF</div><h3>Material de apoio (PDF)</h3><p>Guias, card&aacute;pios e planos pr&aacute;ticos.</p></div>
-      <div class="deliver-card"><div class="ph">MOCKUP &mdash; receitas / e-book</div><h3>Receitas e card&aacute;pios</h3><p>Pratos pr&aacute;ticos para todos os dias.</p></div>
-      <div class="deliver-card"><div class="ph light">MOCKUP &mdash; grupo WhatsApp</div><h3>Suporte no WhatsApp</h3><p>Acompanhamento e d&uacute;vidas por 1 ano.</p></div>
+  <div class="wrap deliver-new-wrap">
+    <div class="deliver-img-wrap">
+      <img class="deliver-mockup-img" src="assets/recebe-mockups.png" alt="Notebook, tablet, celular e livro com os materiais do Ketox Diet Pro" loading="lazy">
+    </div>
+    <div class="deliver-items">
+      <div class="deliver-item">
+        <h3>Aulas em v&iacute;deo</h3>
+        <p>8 m&oacute;dulos completos, acesso por 1 ano.</p>
+      </div>
+      <div class="deliver-div"></div>
+      <div class="deliver-item">
+        <h3>Material de apoio (PDF)</h3>
+        <p>Guias, card&aacute;pios e planos pr&aacute;ticos.</p>
+      </div>
+      <div class="deliver-div"></div>
+      <div class="deliver-item">
+        <h3>Receitas e card&aacute;pios</h3>
+        <p>Pratos pr&aacute;ticos para todos os dias.</p>
+      </div>
+      <div class="deliver-div"></div>
+      <div class="deliver-item">
+        <h3>Suporte no WhatsApp</h3>
+        <p>Acompanhamento e d&uacute;vidas por 1 ano.</p>
+      </div>
     </div>
   </div>
 </section>
@@ -1211,7 +1257,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
     <h2>Recapitulando tudo que voc&ecirc; <span class="gold-it">recebe hoje</span></h2>
   </div>
   <div class="wrap">
-    <span class="access-seal">CURSO POR 1 ANO &mdash; ACESSO COMPLETO POR 12 MESES</span>
+    <span class="access-seal">CURSO POR 1 ANO: ACESSO COMPLETO POR 12 MESES</span>
     <div class="price-wrap">
       <aside class="price-aside recap-aside">
         <h4>Recapitulando tudo que voc&ecirc; recebe hoje</h4>
@@ -1229,7 +1275,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
         </div>
       </aside>
       <div class="price-box">
-        <img class="price-float" src="assets/avulso-oferta.png" alt="Oferta Ketox Diet Pro">
+        <img class="price-float" src="assets/avulso-oferta-nova.png" alt="Oferta Ketox Diet Pro">
         <span class="urgency">&#9203; OFERTA POR TEMPO LIMITADO</span>
         <p class="from">De R$ 3.173</p>
         <p class="now-label">&Agrave; vista por apenas</p>
@@ -1245,7 +1291,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
         </div>
       </div>
     </div>
-    <p class="day-reframe">Menos do que R$ 0,55 por dia no plano anual &mdash; o pre&ccedil;o de um m&eacute;todo que pode mudar sua rela&ccedil;&atilde;o com a comida para sempre.</p>
+    <p class="day-reframe">Menos do que R$ 0,55 por dia no plano anual, o pre&ccedil;o de um m&eacute;todo que pode mudar sua rela&ccedil;&atilde;o com a comida para sempre.</p>
   </div>
 </section>
 
@@ -1278,7 +1324,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
     <p class="lead" style="color:#dcdcdc;">O Ketox Diet Pro foi constru&iacute;do sobre evid&ecirc;ncias atuais de sa&uacute;de metab&oacute;lica e nutri&ccedil;&atilde;o, traduzidas em uma linguagem simples e aplic&aacute;vel. Nada de modismos ou promessas vazias.</p>
   </div>
   <div class="wrap">
-    <div class="auth-interactive">
+    <div class="auth-interactive" style="align-items:center;">
       <div class="auth-tabs" role="tablist">
         <button class="auth-tab active" data-pane="ap1" role="tab" aria-selected="true">
           <span class="at-num has-img"><img class="at-img" src="assets/auth-1.png" alt=""><i class="at-badge">1</i></span>
@@ -1292,10 +1338,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
           <span class="at-num has-img"><img class="at-img" src="assets/auth-3.png" alt=""><i class="at-badge">3</i></span>
           <span class="at-txt"><b>Acompanhamento profissional</b> incluso durante toda a jornada.</span>
         </button>
-        <button class="auth-tab" data-pane="ap4" role="tab" aria-selected="false">
-          <span class="at-num">4</span>
-          <span class="at-txt"><b>Suporte humanizado</b> no WhatsApp + IA exclusiva, para voc&ecirc; nunca ficar perdida.</span>
-        </button>
+        
       </div>
       <div class="auth-panel">
         <div class="auth-pane active" id="ap1" role="tabpanel">
@@ -1307,10 +1350,7 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
         <div class="auth-pane" id="ap3" role="tabpanel">
           <img class="pane-img" src="assets/auth-3.png" alt="Acompanhamento profissional" loading="lazy">
         </div>
-        <div class="auth-pane" id="ap4" role="tabpanel">
-          <div class="pane-ph">DEPOIMENTO &mdash; inserir depois<br>(foto / v&iacute;deo do aluno)</div>
-          <div class="pane-quote"><p>Espa&ccedil;o reservado para depoimento real sobre o <b>suporte humanizado</b>.<span class="pq-name">Nome do aluno &middot; Cidade / Estado</span></p></div>
-        </div>
+        
       </div>
     </div>
     <div class="center" style="margin-top:46px;"><a href="#oferta" class="btn">Quero fazer parte</a></div>
@@ -1326,14 +1366,14 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
   <div class="wrap">
     <div class="faq-list">
       <div class="faq-item"><button class="faq-q">Esse m&eacute;todo realmente funciona? O que ele tem de diferente?<span class="ico">+</span></button><div class="faq-a"><p>A diferen&ccedil;a est&aacute; no m&eacute;todo. Aqui voc&ecirc; n&atilde;o segue regras r&iacute;gidas: aprende a fazer seu corpo trabalhar a seu favor, com mais equil&iacute;brio, energia e consist&ecirc;ncia. &Eacute; educa&ccedil;&atilde;o alimentar, n&atilde;o dieta-rel&acirc;mpago.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Vou precisar seguir regras r&iacute;gidas e passar fome?<span class="ico">+</span></button><div class="faq-a"><p>N&atilde;o &mdash; e esse &eacute; o ponto. O m&eacute;todo &eacute; flex&iacute;vel, pr&aacute;tico e adaptado &agrave; sua rotina. Sem extremismos e sem restri&ccedil;&otilde;es imposs&iacute;veis de manter.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Vou precisar seguir regras r&iacute;gidas e passar fome?<span class="ico">+</span></button><div class="faq-a"><p>N&atilde;o, e esse &eacute; o ponto. O m&eacute;todo &eacute; flex&iacute;vel, pr&aacute;tico e adaptado &agrave; sua rotina. Sem extremismos e sem restri&ccedil;&otilde;es imposs&iacute;veis de manter.</p></div></div>
       <div class="faq-item"><button class="faq-q">Esse m&eacute;todo serve para qualquer pessoa?<span class="ico">+</span></button><div class="faq-a"><p>Ele foi pensado para se adaptar a diferentes rotinas e objetivos. Importante: por ser conte&uacute;do educativo de sa&uacute;de, recomendamos sempre acompanhamento m&eacute;dico ou nutricional individual, especialmente se voc&ecirc; tem alguma condi&ccedil;&atilde;o de sa&uacute;de.</p></div></div>
       <div class="faq-item"><button class="faq-q">J&aacute; tentei de tudo e nada funcionou. Vai ser diferente?<span class="ico">+</span></button><div class="faq-a"><p>As tentativas anteriores costumam falhar porque s&atilde;o r&iacute;gidas demais e n&atilde;o cabem na vida real. Aqui voc&ecirc; segue um caminho que trabalha com voc&ecirc;, no seu ritmo, com suporte ao longo do percurso.</p></div></div>
       <div class="faq-item"><button class="faq-q">Em quanto tempo posso notar mudan&ccedil;as?<span class="ico">+</span></button><div class="faq-a"><p>Varia de pessoa para pessoa. Muitos alunos relatam mais disposi&ccedil;&atilde;o e leveza nos primeiros dias, e mudan&ccedil;as mais consistentes com a aplica&ccedil;&atilde;o ao longo das semanas. Resultados dependem do seu organismo e da sua const&acirc;ncia.</p></div></div>
       <div class="faq-item"><button class="faq-q">Preciso usar suplementos ou produtos?<span class="ico">+</span></button><div class="faq-a"><p>N&atilde;o. O m&eacute;todo n&atilde;o depende de suplementos nem solu&ccedil;&otilde;es artificiais. Tudo &eacute; constru&iacute;do com ajustes simples e inteligentes na alimenta&ccedil;&atilde;o.</p></div></div>
       <div class="faq-item"><button class="faq-q">Como fa&ccedil;o para manter os resultados?<span class="ico">+</span></button><div class="faq-a"><p>O foco do m&eacute;todo &eacute; justamente a consist&ecirc;ncia e a manuten&ccedil;&atilde;o a longo prazo. Voc&ecirc; aprende a sair do ciclo de perder e recuperar, construindo h&aacute;bitos sustent&aacute;veis.</p></div></div>
       <div class="faq-item"><button class="faq-q">E se eu tiver d&uacute;vidas durante o caminho?<span class="ico">+</span></button><div class="faq-a"><p>Voc&ecirc; n&atilde;o passa por isso sozinha. Al&eacute;m do passo a passo, conta com suporte no WhatsApp e uma IA exclusiva para tirar d&uacute;vidas sempre que precisar.</p></div></div>
-      <div class="faq-item"><button class="faq-q">Minha rotina &eacute; corrida. Ainda consigo aplicar?<span class="ico">+</span></button><div class="faq-a"><p>Sim. O m&eacute;todo foi feito para a vida real, com ajustes simples que cabem em uma agenda apertada &mdash; sem mudan&ccedil;as radicais.</p></div></div>
+      <div class="faq-item"><button class="faq-q">Minha rotina &eacute; corrida. Ainda consigo aplicar?<span class="ico">+</span></button><div class="faq-a"><p>Sim. O m&eacute;todo foi feito para a vida real, com ajustes simples que cabem em uma agenda apertada, sem mudan&ccedil;as radicais.</p></div></div>
       <div class="faq-item"><button class="faq-q">E se eu sair do m&eacute;todo por uns dias?<span class="ico">+</span></button><div class="faq-a"><p>Sem culpa. Voc&ecirc; n&atilde;o precisa ser perfeita, s&oacute; consistente. Se parar, retoma de onde ficou, sem recome&ccedil;ar do zero.</p></div></div>
       <div class="faq-item"><button class="faq-q">Esse m&eacute;todo ajuda na disposi&ccedil;&atilde;o e na energia?<span class="ico">+</span></button><div class="faq-a"><p>A melhora na disposi&ccedil;&atilde;o &eacute; um dos primeiros sinais que muitos alunos relatam: mais energia, mais foco e menos oscila&ccedil;&otilde;es ao longo do dia.</p></div></div>
       <div class="faq-item"><button class="faq-q">Como funciona o acesso?<span class="ico">+</span></button><div class="faq-a"><p>Ap&oacute;s a inscri&ccedil;&atilde;o, o acesso &eacute; liberado imediatamente. Voc&ecirc; entra na plataforma e j&aacute; pode come&ccedil;ar, com todos os materiais e b&ocirc;nus dispon&iacute;veis.</p></div></div>
@@ -1366,11 +1406,8 @@ footer{background:#0B2F19;color:#b0b0b0;padding:60px 0 36px;text-align:center}
   <svg width="0" height="0" style="position:absolute" aria-hidden="true"><defs><linearGradient id="footGold" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#F0C054"/><stop offset="1" stop-color="#C9982E"/></linearGradient></defs></svg>
   <div class="wrap">
     <div class="foot-logo"><img class="foot-logo-img" src="assets/logo-rodape.png" alt="Ketox Diet Pro"></div>
-    <div class="foot-seals">
-      <span class="foot-seal"><span class="fs-ico"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V7z"/><path d="m9 12 2 2 4-4"/></svg></span>Compra 100% segura</span>
-      <span class="foot-seal"><span class="fs-ico"><svg viewBox="0 0 24 24"><path d="M12 2L3 7v5c0 5 3.5 8.5 9 10 5.5-1.5 9-5 9-10V7z"/><circle cx="12" cy="12" r="3"/></svg></span>Garantia incondicional de 7 dias</span>
-      <span class="foot-seal"><span class="fs-ico"><svg viewBox="0 0 24 24"><rect x="2" y="5" width="20" height="14" rx="2"/><line x1="2" y1="10" x2="22" y2="10"/></svg></span>Parcele em at&eacute; 12x</span>
-      <span class="foot-seal"><span class="fs-ico"><svg viewBox="0 0 24 24"><path d="M3 9l9-6 9 6"/><path d="M5 9v11h14V9"/><path d="M9 20v-6h6v6"/></svg></span>Plataforma oficial: Hotmart</span>
+        <div class="foot-seals-img" style="text-align:center;margin-bottom:36px;">
+      <img src="assets/compra-segura-hotmart.png" alt="Compra 100% Segura - Garantia 7 dias - Hotmart" style="max-width:580px;width:100%;" loading="lazy">
     </div>
     <div class="foot-links">
       <a href="#">Termos de Uso</a>
@@ -1449,6 +1486,41 @@ document.querySelectorAll('.auth-tab').forEach(function(tab){
   document.addEventListener('scroll',onScroll,{passive:true,capture:true});
   window.addEventListener('resize',onScroll,{passive:true});
   update();
+})();
+
+/* ===== ITEM 9: scroll-reveal global ===== */
+(function(){
+  /* respeitar prefers-reduced-motion */
+  var reduceMotion=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  if(reduceMotion)return;
+  /* seletores a revelar: secoes principals e cards — excluir .pillar (tem seu proprio sistema) e .marquee */
+  var targets=document.querySelectorAll(
+    '.sec,.benefit-strip,.ba-col,.icon-card,.diff-list li,.pare-card,.pare-checkcard,.bonus-card,.deliver-item,.tben-item,.mod-item,.faq-item,.guar-seal,.final-card,.foot-logo'
+  );
+  if(!('IntersectionObserver' in window)){return;}
+  /* marcar via JS para que sem JS os elementos fiquem visiveis */
+  targets.forEach(function(el){
+    /* nao aplicar em elementos que ja tem sistema proprio de reveal */
+    if(el.classList.contains('pillar'))return;
+    el.classList.add('sr-hidden');
+  });
+  var io=new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){
+        var el=entry.target;
+        /* stagger: irmãos visiveis em sequencia */
+        var siblings=el.parentElement?Array.from(el.parentElement.children).filter(function(c){return c.classList.contains('sr-hidden')||c.classList.contains('sr-visible')}):[];
+        var idx=siblings.indexOf(el);
+        setTimeout(function(){
+          el.classList.add('sr-visible');
+        },idx*80);
+        io.unobserve(el);
+      }
+    });
+  },{threshold:0.12,rootMargin:'0px 0px -40px 0px'});
+  targets.forEach(function(el){
+    if(!el.classList.contains('pillar'))io.observe(el);
+  });
 })();
 </script>
 </body>
